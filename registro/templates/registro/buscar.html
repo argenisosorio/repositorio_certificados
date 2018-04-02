@@ -1,0 +1,47 @@
+{% extends "registro/base.html" %}
+{% block titulo %}Buscar certificado{% endblock %}
+{% block cuerpo %}
+<div align="center">
+  <h1>Bienvenido al repositorio de certificados digitales de CENDITEL</h1>
+  <br />
+  <h4>Por favor escriba su cédula de identidad</h4>
+  <br />
+  <form action="/busqueda/" method="get">
+    <input type="text" name="q">
+    <input type="submit" value="Buscar">
+  </form>
+  <br />
+  {% if certificados %}
+  <p>Estas buscado: <strong>{{ query }}</strong></p>
+    <span class="certificados_encontrados"><b>Certificados encontrados: {{ certificados|length }} certificados.</b></span>
+    <br />
+    <br />
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><b>Cédula</b></th>      
+          <th><b>Fecha de subida</b></th>
+          <th><b>Ubicación electróica</b></th>
+        </tr>
+      </thead>
+      {% for x in certificados %}
+      <tbody>
+        <tr>
+          <td>
+            {{ x.cedula }}
+          </td>
+          <td>
+            {{ x.uploaded_at}}
+          </td>
+          <td>
+            <a href="media/{{ x.certificado }}">Descargar</a>
+          </td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+  {% else %}
+    <!--p>Ningún certificado coincide con el criterio de búsqueda.</p-->
+  {% endif %}
+</div>
+{% endblock %}

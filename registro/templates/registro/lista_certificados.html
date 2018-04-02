@@ -1,0 +1,34 @@
+{% extends "registro/base.html" %}
+{% block titulo %}Lista de certificados{% endblock %}
+{% block cuerpo %}
+<h1>Lista de certificados</h1>
+<br />
+<table border="1px" cellpadding="0px" cellspacing="0px" style="width:100%">
+  <thead>
+    <tr>
+      <th><b>ID</b></th>
+      <th><b>Cédula</b></th>      
+      <th><b>Fecha de subida</b></th>
+      <th><b>Ubicación electróica</b></th>
+    </tr>
+  </thead>
+  {% for x in object_list %}
+  <tbody>
+    <tr>
+      <td>
+        {{ x.id }}
+      </td>
+      <td>
+        {{ x.cedula }}
+      </td>
+      <td>
+        {{ x.uploaded_at}}
+      </td>
+      <td>
+        <a href="media/{{ x.certificado }}">Descargar</a>
+      </td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+{% endblock %}

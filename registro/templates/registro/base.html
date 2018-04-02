@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>
+      {% block titulo %}Base{% endblock %}
+    </title>
+    {% load staticfiles %}
+    <!-- Bootstrap Styles - css
+    ================================================== -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link href="{% static 'css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
+    <!-- Styles - css
+    ================================================== -->
+    <link href="{% static 'css/theme.css' %}" rel="stylesheet">
+    <!-- Others - js
+    ================================================== -->
+    <script src="{% static 'js/ie-emulation-modes-warning.js' %}"></script>
+    <script src="{% static 'js/holder.min.js' %}"></script>
+    <!-- Jquery - js
+    ================================================== -->
+    <script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <!-- Bootstrap - js
+    ================================================== -->
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- Bug fix - js
+    ================================================== -->
+    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+  </head>
+  <body>
+    
+    <!-- Fixed navbar
+    ================================================== -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Subir y descargar certificados</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'registro:guardar_certificado' %}">Subir certificado</a></li>
+          </ul>
+          {% if request.user.is_authenticated %}
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'registro:lista_certificados' %}">Lista de certificados</a></li>
+          </ul>
+          {% else %}
+          {% endif %}
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'registro:buscar' %}">Buscar certificado</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav><!-- End navbar -->
+
+    <br />
+    <br />
+    <br />
+
+    <div class="container theme-showcase" role="main">
+
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-success alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+              <strong>
+                {% if message.tags %}{% endif %}
+                {{ message }}
+              </strong>
+          </div>
+        {% endfor %}
+      {% endif %}
+
+      <div class="well">
+      {% block cuerpo %}
+      {% endblock %}
+      </div>
+    </div> <!-- /container -->
+
+  </body>
+
+  <script src="{% static 'js/scripts.js' %}"></script>
+</html>
