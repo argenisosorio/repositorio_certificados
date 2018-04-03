@@ -1,8 +1,8 @@
 {% extends "registro/base.html" %}
-{% block titulo %}Buscar certificado{% endblock %}
+{% block titulo %}Repositorio de certificados digitales de CENDITEL{% endblock %}
 {% block cuerpo %}
 <div align="center">
-  <h1>Bienvenido al repositorio de certificados digitales de CENDITEL</h1>
+  <h1>Bienvenido al repositorio de certificados.</h1>
   <br />
   <h4>Por favor escriba su cédula de identidad</h4>
   <br />
@@ -19,8 +19,9 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th><b>Cédula</b></th>      
-          <th><b>Fecha de subida</b></th>
+          <th><b>Nombre completo</b></th>
+          <th><b>Evento / Curso</b></th>
+          <th><b>Cédula</b></th>
           <th><b>Ubicación electróica</b></th>
         </tr>
       </thead>
@@ -28,13 +29,19 @@
       <tbody>
         <tr>
           <td>
+            {{ x.nombre_completo }}
+          </td>
+          <td>
+            {{ x.evento_curso }}
+          </td>
+          <td>
             {{ x.cedula }}
           </td>
           <td>
-            {{ x.uploaded_at}}
-          </td>
-          <td>
-            <a href="media/{{ x.certificado }}">Descargar</a>
+            <a href="media/{{ x.certificado }}" target="_blank">
+              Descargar
+              <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+            </a>
           </td>
         </tr>
       </tbody>

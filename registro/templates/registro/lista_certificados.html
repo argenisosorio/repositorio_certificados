@@ -3,12 +3,12 @@
 {% block cuerpo %}
 <h1>Lista de certificados</h1>
 <br />
-<table border="1px" cellpadding="0px" cellspacing="0px" style="width:100%">
+<table class="table table-striped">
   <thead>
     <tr>
-      <th><b>ID</b></th>
-      <th><b>Cédula</b></th>      
-      <th><b>Fecha de subida</b></th>
+      <th><b>Nombre completo</b></th>
+      <th><b>Evento / Curso</b></th>
+      <th><b>Cédula</b></th>
       <th><b>Ubicación electróica</b></th>
     </tr>
   </thead>
@@ -16,13 +16,13 @@
   <tbody>
     <tr>
       <td>
-        {{ x.id }}
+        {{ x.nombre_completo }}
+      </td>
+      <td>
+        {{ x.evento_curso }}
       </td>
       <td>
         {{ x.cedula }}
-      </td>
-      <td>
-        {{ x.uploaded_at}}
       </td>
       <td>
         <a href="media/{{ x.certificado }}">Descargar</a>

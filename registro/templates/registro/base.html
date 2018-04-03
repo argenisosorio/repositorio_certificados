@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    {% load staticfiles %}
+    <link rel="icon" href="{% static 'img/cenditel-logo.png' %}">
     <title>
-      {% block titulo %}Base{% endblock %}
+      {% block titulo %}Repositorio de certificados digitales de CENDITEL{% endblock %}
     </title>
     {% load staticfiles %}
     <!-- Bootstrap Styles - css
@@ -33,42 +34,54 @@
     <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
   </head>
   <body>
-    
-    <!-- Fixed navbar
+
+    <!-- navbar cintillo
     ================================================== -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Subir y descargar certificados</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="{% url 'registro:guardar_certificado' %}">Subir certificado</a></li>
-          </ul>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-cintillo">
+    <div class="container">
+      <div align="center">
+        <img class="cintillo_up" src="{% static 'img/cintillo_2018.png' %}" width="100%"></img>
+      </div>
+    </div>
+    </nav>
+    <!-- navbar cintillo end -->
+
+    <br />
+    <br />
+    <br />
+ 
+    <div class="container theme-showcase" role="main">
+
+      <img class="img-responsive" src="{% static 'img/cintillo_cenditel.png' %}" width="100%"></img>
+
+      <br />
+
+      <!-- Navbar
+      ================================================== -->
+      <nav class="navbar navbar-inverse">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Inicio</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="{% url 'registro:guardar_certificado' %}">Subir certificado</a></li>
+            </ul>
           {% if request.user.is_authenticated %}
-          <ul class="nav navbar-nav">
-            <li><a href="{% url 'registro:lista_certificados' %}">Lista de certificados</a></li>
-          </ul>
+            <ul class="nav navbar-nav">
+              <li><a href="{% url 'registro:lista_certificados' %}">Lista de certificados</a></li>
+            </ul>            
+          </div>
           {% else %}
           {% endif %}
-          <ul class="nav navbar-nav">
-            <li><a href="{% url 'registro:buscar' %}">Buscar certificado</a></li>
-          </ul>
         </div>
-      </div>
-    </nav><!-- End navbar -->
-
-    <br />
-    <br />
-    <br />
-
-    <div class="container theme-showcase" role="main">
+      </nav><!-- End navbar -->
 
       {% if messages %}
         {% for message in messages %}
@@ -82,7 +95,7 @@
         {% endfor %}
       {% endif %}
 
-      <div class="well">
+      <div class="well well_cuerpo">
       {% block cuerpo %}
       {% endblock %}
       </div>

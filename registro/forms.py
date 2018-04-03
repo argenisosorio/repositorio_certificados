@@ -6,4 +6,4 @@ from registro.models import Certificado
 class CertificadoForm(forms.ModelForm):
     class Meta:
         model = Certificado
-        fields = ('cedula','certificado',)
+        fields = ('nombre_completo','evento_curso','cedula','certificado')

@@ -1,5 +1,5 @@
 body {
-  padding-top: 70px;
+  padding-top: 20px;
   padding-bottom: 30px;
 }
 
@@ -19,4 +19,12 @@ body {
 
 .certificados_encontrados {
   color: green;
+}
+
+.navbar-cintillo {
+  background: #FFFFFF;
+}
+
+.well_cuerpo {
+  background: #FFFFFF;
 }
