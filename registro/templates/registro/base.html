@@ -52,9 +52,9 @@
  
     <div class="container theme-showcase" role="main">
 
-      <img class="img-responsive" src="{% static 'img/cintillo_cenditel.png' %}" width="100%"></img>
-
-      <br />
+      <div class="well well_cuerpo">
+        <img class="img-responsive" src="{% static 'img/cintillo_cenditel.png' %}" width="100%"></img>
+      </div>
 
       <!-- Navbar
       ================================================== -->
@@ -70,12 +70,15 @@
             <a class="navbar-brand" href="/">Inicio</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
+            {% if request.user.is_authenticated %}
             <ul class="nav navbar-nav">
               <li><a href="{% url 'registro:guardar_certificado' %}">Subir certificado</a></li>
             </ul>
             <ul class="nav navbar-nav">
               <li><a href="{% url 'registro:lista_certificados' %}">Lista de certificados</a></li>
-            </ul>            
+            </ul>
+            {% else %}
+            {% endif %}
           </div>
         </div>
       </nav><!-- End navbar -->
