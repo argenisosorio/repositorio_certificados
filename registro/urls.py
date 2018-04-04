@@ -22,4 +22,6 @@ urlpatterns = patterns('',
     }),
     url(r'^$', buscar, name='buscar'),
     url(r'^busqueda/$', busqueda, name='busqueda'),
+    url(r'^busqueda/$', busqueda, name='busqueda'),
+    url(r'^salir$', login_required(views.Salir.as_view()), name='salir'),
 )

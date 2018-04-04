@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.http import HttpResponse, HttpResponseRedirect
-from django.views.generic import TemplateView,ListView
+from django.views.generic import TemplateView,ListView, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse_lazy
@@ -10,6 +10,7 @@ from django.shortcuts import render
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import redirect
+from django.contrib.auth import logout
 
 
 class Guardar_Certificado(SuccessMessageMixin, CreateView):
@@ -69,3 +70,16 @@ def busqueda(request):
         return render(request, 'registro/buscar.html',  {'certificados': certificados, 'query': q})
     else:
         return HttpResponse('Por favor introduce un termino de búsqueda.')
+
+
+class Salir(View):
+    """
+    Clase que permite cerrar la sesión de usuario.
+    """
+
+    def get(self, request):
+        """
+        Método que redireccíona cuando se cierra la sesión.
+        """
+        logout(request)
+        return redirect('/')
