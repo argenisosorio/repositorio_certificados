@@ -6,15 +6,20 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th><b>ID</b></th>
       <th><b>Nombre completo</b></th>
       <th><b>Evento / Curso</b></th>
       <th><b>Cédula</b></th>
       <th><b>Ubicación electróica</b></th>
+      <th><b>Acciones</b></th>
     </tr>
   </thead>
   {% for x in object_list %}
   <tbody>
     <tr>
+      <td>
+        {{ x.id }}
+      </td>
       <td>
         {{ x.nombre_completo }}
       </td>
@@ -26,6 +31,16 @@
       </td>
       <td>
         <a href="media/{{ x.certificado }}">Descargar</a>
+      </td>
+      <td>
+        <a href="{% url 'registro:editar_certificado' x.id %}">
+          <button class="btn btn-primary">Editar</button>
+        </a>
+      </td>
+      <td>
+        <a href="{% url 'registro:borrar_certificado' x.id %}">
+          <button class="btn btn-danger">Borrar</button>
+        </a>  
       </td>
     </tr>
   </tbody>

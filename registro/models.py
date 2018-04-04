@@ -10,5 +10,8 @@ class Certificado(models.Model):
     certificado = models.FileField(upload_to='', blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
+    def get_absolute_url(self):
+        return reverse('registro:editar_certificado', kwargs={'pk': self.pk})
+
     def __unicode__(self):
         return self.cedula

@@ -1,0 +1,10 @@
+{% extends "registro/base.html" %}
+{% block titulo %}Repositorio de certificados digitales de CENDITEL{% endblock %}
+{% block cuerpo %}
+<form method="post">{% csrf_token %}
+  Está seguro que desea eliminar el certificado de: "{{ object }}" ?
+  <br />
+  <br />
+  <input type="submit" class="btn btn-danger" value="Borrar" />
+</form>
+{% endblock %}

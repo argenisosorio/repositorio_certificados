@@ -12,7 +12,7 @@ from django.core.files.storage import FileSystemStorage
 from django.shortcuts import redirect
 
 
-class Guardar_Certificado(SuccessMessageMixin,CreateView):
+class Guardar_Certificado(SuccessMessageMixin, CreateView):
     """
     Clase que permite guardar los certificados, se guardar en /media
     """
@@ -29,6 +29,22 @@ class Lista_Certificados(ListView):
     """
     model = Certificado
     template_name = "registro/lista_certificados.html"
+
+
+class Editar_Certificado(SuccessMessageMixin, UpdateView):
+    template_name = "registro/guardar_certificado.html"
+    form_class = CertificadoForm
+    model = Certificado
+    success_message = "Se actualizó la información con éxito"
+    success_url = reverse_lazy('registro:lista_certificados')
+
+
+class Borrar_Certificado(SuccessMessageMixin, DeleteView):
+    #template_name = "registro/guardar_certificado.html"
+    form_class = CertificadoForm
+    model = Certificado
+    success_message = "Se eliminó la información con éxito"
+    success_url = reverse_lazy('registro:lista_certificados')
 
 
 def buscar(request):

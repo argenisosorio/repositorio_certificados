@@ -73,13 +73,10 @@
             <ul class="nav navbar-nav">
               <li><a href="{% url 'registro:guardar_certificado' %}">Subir certificado</a></li>
             </ul>
-          {% if request.user.is_authenticated %}
             <ul class="nav navbar-nav">
               <li><a href="{% url 'registro:lista_certificados' %}">Lista de certificados</a></li>
             </ul>            
           </div>
-          {% else %}
-          {% endif %}
         </div>
       </nav><!-- End navbar -->
 
