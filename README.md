@@ -22,3 +22,15 @@ $ python manage.py makemigrations registro
 $ python manage.py migrate
 
 $ python manage.py runserver
+
+## Importar la data desde el .csv
+
+$ sqlite3 db.sqlite3
+
+sqlite> .tables
+
+sqlite> .mode csv
+
+sqlite> .import data.csv registro_certificado
+
+sqlite> .exit
