@@ -111,4 +111,5 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# url a la cual se redirecciona al usuario si no está autenticado.
 LOGIN_URL = "/"

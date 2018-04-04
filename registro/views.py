@@ -14,7 +14,7 @@ from django.shortcuts import redirect
 
 class Guardar_Certificado(SuccessMessageMixin, CreateView):
     """
-    Clase que permite guardar los certificados, se guardar en /media
+    Clase que permite guardar los certificados, se guardar en /media.
     """
     model = Certificado
     form_class = CertificadoForm
@@ -25,13 +25,16 @@ class Guardar_Certificado(SuccessMessageMixin, CreateView):
 
 class Lista_Certificados(ListView):
     """
-    Clase que permite listar los certificados registrados
+    Clase que permite listar los certificados registrados.
     """
     model = Certificado
     template_name = "registro/lista_certificados.html"
 
 
 class Editar_Certificado(SuccessMessageMixin, UpdateView):
+    """
+    Clase que permite editar los certificados registrados.
+    """
     template_name = "registro/guardar_certificado.html"
     form_class = CertificadoForm
     model = Certificado
@@ -40,7 +43,9 @@ class Editar_Certificado(SuccessMessageMixin, UpdateView):
 
 
 class Borrar_Certificado(SuccessMessageMixin, DeleteView):
-    #template_name = "registro/guardar_certificado.html"
+    """
+    Clase que permite borrar los certificados.
+    """
     form_class = CertificadoForm
     model = Certificado
     success_message = "Se eliminó la información con éxito"
