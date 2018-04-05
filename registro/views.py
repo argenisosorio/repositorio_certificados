@@ -11,6 +11,8 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import redirect
 from django.contrib.auth import logout
+from django.contrib import messages
+from django.shortcuts import render_to_response
 
 
 class Guardar_Certificado(SuccessMessageMixin, CreateView):
@@ -67,9 +69,14 @@ def busqueda(request):
     if 'q' in request.GET and request.GET['q']:
         q = request.GET['q']
         certificados = Certificado.objects.filter(cedula__icontains=q)
-        return render(request, 'registro/buscar.html',  {'certificados': certificados, 'query': q})
+        if certificados:
+            return render(request, 'registro/buscar.html',  {'certificados': certificados, 'query': q})
+        else:
+            messages = ['No se encontró ningún certificado.']
+            return render_to_response('registro/buscar.html', {'messages': messages})
     else:
-        return HttpResponse('Por favor introduce un termino de búsqueda.')
+        messages = ['Por favor introduce una cédula de identidad.']
+        return render_to_response('registro/buscar.html', {'messages': messages})
 
 
 class Salir(View):
