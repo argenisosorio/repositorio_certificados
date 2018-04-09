@@ -22,8 +22,9 @@
       <thead>
         <tr>
           <th><b>Nombre completo</b></th>
-          <th><b>Evento / Curso</b></th>
           <th><b>Cédula</b></th>
+          <th><b>Evento / Curso</b></th>
+          <th><b>Rol</b></th>
           <th><b>Ubicación electróica</b></th>
         </tr>
       </thead>
@@ -34,10 +35,13 @@
             {{ x.nombre_completo }}
           </td>
           <td>
+            {{ x.cedula }}
+          </td>
+          <td>
             {{ x.evento_curso }}
           </td>
           <td>
-            {{ x.cedula }}
+            {{ x.rol }}
           </td>
           <td>
             <a href="media/{{ x.certificado }}" target="_blank">
