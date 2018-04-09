@@ -8,14 +8,25 @@ Django==1.8.8
 Python==2.7
 ```
 
-## Dato
+## Instalación de paquetes para crear entornos virtuales
 
-La base de datos es sqlite3, al
-migrar se creara, así como
-creara la tabla y campos descritos
-en el modelo.
+# apt-get install install python-setuptools python-dev
 
-## Comandos para probar el proyecto
+# apt-get install python-virtualenv virtualenvwrapper
+
+## Crear un entorno virtual de python.
+
+$ virtualenv mi_env
+
+$ source mi_env/bin/activate
+
+## Instalación de requerimientos del proyecto
+
+$ pip install -r repositorio_certificados/requirements.txt 
+
+## Probar el proyecto
+
+$ cd repositorio_certificados
 
 $ python manage.py makemigrations registro
 
@@ -23,7 +34,7 @@ $ python manage.py migrate
 
 $ python manage.py runserver
 
-## Importar la data desde el .csv
+## Importar la data en la base de datos desde un .csv
 
 $ sqlite3 db.sqlite3
 
