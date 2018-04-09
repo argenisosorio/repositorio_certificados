@@ -8,9 +8,9 @@
     <tr>
       <th><b>ID</b></th>
       <th><b>Nombre completo</b></th>
+      <th><b>Cédula</b></th>
       <th><b>Evento / Curso</b></th>
       <th><b>Rol</b></th>
-      <th><b>Cédula</b></th>
       <th><b>Ubicación electróica</b></th>
       <th><b>Acciones</b></th>
     </tr>
@@ -25,17 +25,20 @@
         {{ x.nombre_completo }}
       </td>
       <td>
+        {{ x.cedula }}
+      </td>
+      <td>
         {{ x.evento_curso }}
       </td>
       <td>
         {{ x.rol }}
       </td>
-      <td>
-        {{ x.cedula }}
-      </td>
-      <td>
-        <a href="media/{{ x.certificado }}">Descargar</a>
-      </td>
+        <td>
+          <a href="media/{{ x.certificado }}" target="_blank">
+            Descargar
+            <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+          </a>
+        </td>
       <td>
         <a href="{% url 'registro:editar_certificado' x.id %}">
           <button class="btn btn-primary">Editar</button>
