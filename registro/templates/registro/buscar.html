@@ -8,18 +8,16 @@
   <h1>Bienvenido al repositorio de certificados.</h1>
   <br />
   <form action="/busqueda/" method="get" onsubmit="return checkform(this);">
-    <h4>Por favor escriba su cédula de identidad</h4>
+    <h4>
+      Por favor escriba su cédula de identidad y el código
+      <span id="txtCaptchaDiv"></span>
+      <input type="hidden" id="txtCaptcha"/>
+    </h4>
     <br />
-    <input type="text" name="q">
+    <input type="text" name="q" placeholder="Cédula" maxlength="10" required>
     <br />
     <br />
-    <h4>Por favor escriba el siguiente código</h4>
-    <br />
-    <span id="txtCaptchaDiv"></span>
-    <br />
-    <input type="hidden" id="txtCaptcha" />
-    <br />
-    <input type="text" name="txtInput" id="txtInput"/>
+    <input type="text" name="txtInput" id="txtInput" placeholder="Código" required/>
     <br />
     <br />
     <input type="submit" class="btn btn-success" value="Buscar">
@@ -33,7 +31,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th><b>Nombre completo</b></th>
+          <th><b>Nombre y Apellido</b></th>
           <th><b>Cédula</b></th>
           <th><b>Evento / Curso</b></th>
           <th><b>Rol</b></th>
@@ -79,11 +77,6 @@
   {% endif %}
 </div>
 <script type="text/javascript">
-  /*
-  |---------------------------------------------
-  | Función que carga el captcha en el template.
-  |---------------------------------------------
-  */
   function checkform(theform){
     var why = "";
 
