@@ -4,10 +4,19 @@
 <div align="center">
   <h1>Bienvenido al repositorio de certificados.</h1>
   <br />
-  <h4>Por favor escriba su cédula de identidad</h4>
-  <br />
-  <form action="/busqueda/" method="get">
+  <form action="/busqueda/" method="get" onsubmit="return checkform(this);">
+    <h4>Por favor escriba su cédula de identidad</h4>
+    <br />
     <input type="text" name="q">
+    <br />
+    <br />
+    <h4>Por favor escriba el siguiente código</h4>
+    <br />
+    <span id="txtCaptchaDiv"></span>
+    <br />
+    <input type="hidden" id="txtCaptcha" />
+    <br />
+    <input type="text" name="txtInput" id="txtInput"/>
     <br />
     <br />
     <input type="submit" class="btn btn-success" value="Buscar">
@@ -66,4 +75,54 @@
     <!--p>Ningún certificado coincide con el criterio de búsqueda.</p-->
   {% endif %}
 </div>
+<script type="text/javascript">
+  /*
+  |--------------------------------------------------------------------------
+  | Función que hace desaparecer las notificaciones(alerts) de bootstrap.
+  |--------------------------------------------------------------------------
+  */
+  function checkform(theform){
+    var why = "";
+
+    if(theform.txtInput.value == ""){
+      why += "El código de seguridad no debe estar vacío.\n";
+    }
+    if(theform.txtInput.value != ""){
+      if(ValidCaptcha(theform.txtInput.value) == false){
+        why += "El código de seguridad no coincide.\n";
+      }
+    }
+    if(why != ""){
+      alert(why);
+      return false;
+    }
+  }
+
+  //Generates the captcha function
+  var a = Math.ceil(Math.random() * 9)+ '';
+  var b = Math.ceil(Math.random() * 9)+ '';
+  var c = Math.ceil(Math.random() * 9)+ '';
+  var d = Math.ceil(Math.random() * 9)+ '';
+  var e = Math.ceil(Math.random() * 9)+ '';
+
+  var code = a + b + c + d + e;
+  document.getElementById("txtCaptcha").value = code;
+  document.getElementById("txtCaptchaDiv").innerHTML = code;
+
+  // Validate the Entered input aganist the generated security code function
+  function ValidCaptcha(){
+      var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+      var str2 = removeSpaces(document.getElementById('txtInput').value);
+      if (str1 == str2){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // Remove the spaces from the entered and generated code
+  function removeSpaces(string){
+    return string.split(' ').join('');
+  }
+</script>
 {% endblock %}
