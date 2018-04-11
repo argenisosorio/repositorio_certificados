@@ -53,39 +53,11 @@
  
     <div class="container theme-showcase" role="main">
 
-      <div class="well well_cuerpo">
+      <div class="">
         <img class="img-responsive" src="{% static 'img/cintillo_cenditel.png' %}" width="100%"></img>
       </div>
 
-      <!-- Navbar
-      ================================================== -->
-      <nav class="navbar navbar-default">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Inicio</a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            {% if request.user.is_authenticated %}
-            <ul class="nav navbar-nav">
-              <li><a href="{% url 'registro:guardar_certificado' %}">Subir certificado</a></li>
-            </ul>
-            <ul class="nav navbar-nav">
-              <li><a href="{% url 'registro:lista_certificados' %}">Lista de certificados</a></li>
-            </ul>
-            <ul class="nav navbar-nav">
-              <li><a href="{% url 'registro:salir' %}">Cerrar sesión</a></li>
-            </ul>
-            {% else %}
-            {% endif %}
-          </div>
-        </div>
-      </nav><!-- End navbar -->
+      <br />
 
       {% if messages %}
         {% for message in messages %}
@@ -99,9 +71,42 @@
         {% endfor %}
       {% endif %}
 
-      <div class="well well_cuerpo">
-      {% block cuerpo %}
-      {% endblock %}
+      <div class="">
+
+        <!-- Navbar
+        ================================================== -->
+        <nav class="navbar navbar-default navbar-default-menu">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">
+                <i class="glyphicon glyphicon-home"></i>
+                Inicio
+              </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              {% if request.user.is_authenticated %}
+              <ul class="nav navbar-nav">
+                <li><a href="{% url 'registro:guardar_certificado' %}">Subir certificado</a></li>
+              </ul>
+              <ul class="nav navbar-nav">
+                <li><a href="{% url 'registro:lista_certificados' %}">Lista de certificados</a></li>
+              </ul>
+              <ul class="nav navbar-nav">
+                <li><a href="{% url 'registro:salir' %}">Cerrar sesión</a></li>
+              </ul>
+              {% else %}
+              {% endif %}
+            </div>
+          </div>
+        </nav><!-- End navbar -->
+        {% block cuerpo %}
+        {% endblock %}
       </div>
     </div> <!-- /container -->
 
