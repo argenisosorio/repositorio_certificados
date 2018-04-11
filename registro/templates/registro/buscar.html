@@ -10,14 +10,14 @@
   <form action="/busqueda/" method="get" onsubmit="return checkform(this);">
     <h4>
       Por favor escriba su cédula de identidad y el código
-      <span id="txtCaptchaDiv"></span>
       <input type="hidden" id="txtCaptcha"/>
+      <span id="txtCaptchaDiv"></span>
     </h4>
     <br />
     <input type="text" name="q" placeholder="Cédula" maxlength="10" required>
     <br />
     <br />
-    <input type="text" name="txtInput" id="txtInput" placeholder="Código" required/>
+    <input type="text" name="txtInput1" id="txtInput1" placeholder="Código" required/>
     <br />
     <br />
     <input type="submit" class="btn btn-success" value="Buscar">
@@ -80,11 +80,11 @@
   function checkform(theform){
     var why = "";
 
-    if(theform.txtInput.value == ""){
+    if(theform.txtInput1.value == ""){
       why += "El código de seguridad no debe estar vacío.\n";
     }
-    if(theform.txtInput.value != ""){
-      if(ValidCaptcha(theform.txtInput.value) == false){
+    if(theform.txtInput1.value != ""){
+      if(ValidCaptcha(theform.txtInput1.value) == false){
         why += "El código de seguridad no coincide.\n";
       }
     }
@@ -102,23 +102,19 @@
   var e = Math.ceil(Math.random() * 9)+ '';
 
   var code = a + b + c + d + e;
+  //alert (code);
   document.getElementById("txtCaptcha").value = code;
   document.getElementById("txtCaptchaDiv").innerHTML = code;
 
   // Validate the Entered input aganist the generated security code function
   function ValidCaptcha(){
-      var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
-      var str2 = removeSpaces(document.getElementById('txtInput').value);
+      var str1 = document.getElementById('txtCaptcha').value;
+      var str2 = document.getElementById('txtInput1').value;
       if (str1 == str2){
       return true;
     } else {
       return false;
     }
-  }
-
-  // Remove the spaces from the entered and generated code
-  function removeSpaces(string){
-    return string.split(' ').join('');
   }
 </script>
 {% endblock %}
