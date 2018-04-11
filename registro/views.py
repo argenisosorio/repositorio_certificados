@@ -4,8 +4,8 @@ from django.views.generic import TemplateView,ListView, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse_lazy
-from registro.models import Certificado
-from registro.forms import CertificadoForm
+from registro.models import Certificado, Data
+from registro.forms import CertificadoForm, DataForm
 from django.shortcuts import render
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
@@ -13,6 +13,17 @@ from django.shortcuts import redirect
 from django.contrib.auth import logout
 from django.contrib import messages
 from django.shortcuts import render_to_response
+
+
+class Subir_data(SuccessMessageMixin, CreateView):
+    """
+    Clase que permite subir la data .zip en el servidor.
+    """
+    model = Data
+    form_class = DataForm
+    template_name = "registro/subir_data.html"
+    success_url = reverse_lazy('registro:subir_data')
+    success_message = "La data se guardo con éxito"
 
 
 class Guardar_Certificado(SuccessMessageMixin, CreateView):

@@ -3,10 +3,13 @@
 {% block cuerpo %}
 <form method="post" enctype="multipart/form-data">{% csrf_token %}
 
-  <label>{{ form.certificado.label }}:</label>
-  {{ form.certificado }}
+  <label>{{ form.data_zip.label }}:</label>
+  {{ form.data_zip }}
 
   <hr />
+
+  <label>{{ form.descripcion.label }}:</label>
+  {{ form.descripcion }}
 
   <button type="submit">Subir</button>
 </form>

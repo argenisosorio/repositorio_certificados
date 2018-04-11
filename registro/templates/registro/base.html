@@ -92,6 +92,9 @@
             <div id="navbar" class="navbar-collapse collapse">
               {% if request.user.is_authenticated %}
               <ul class="nav navbar-nav">
+                <li><a href="{% url 'registro:subir_data' %}">Subir data</a></li>
+              </ul>
+              <ul class="nav navbar-nav">
                 <li><a href="{% url 'registro:guardar_certificado' %}">Subir certificado</a></li>
               </ul>
               <ul class="nav navbar-nav">
