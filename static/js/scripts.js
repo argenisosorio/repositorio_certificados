@@ -8,7 +8,9 @@ $("document").ready(function(){
    $('#txtInput1').on("cut copy paste",function(e) {
      e.preventDefault();
    });
-
+   $('#txtInput2').on("cut copy paste",function(e) {
+     e.preventDefault();
+   });
   /*
   |--------------------------------------------
   | Función que desabilita el campo del código.
