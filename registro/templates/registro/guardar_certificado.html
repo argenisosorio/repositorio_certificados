@@ -1,10 +1,30 @@
 {% extends "registro/base.html" %}
-{% block titulo %}Subir Data{% endblock %}
+{% block titulo %}Certificado{% endblock %}
 {% block cuerpo %}
 <form method="post" enctype="multipart/form-data">{% csrf_token %}
 
   <label>{{ form.certificado.label }}:</label>
   {{ form.certificado }}
+
+  <hr />
+
+  <label>Nombre completo:</label>
+  {{ form.nombre_completo }}
+
+  <hr />
+
+  <label>Evento / Curso:</label>
+  {{ form.evento_curso }}
+
+  <hr />
+
+  <label>Rol:</label>
+  {{ form.rol }}
+
+  <hr />
+
+  <label>Cédula asociada:</label>
+  {{ form.cedula }}
 
   <hr />
 
