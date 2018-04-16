@@ -34,7 +34,7 @@ class Guardar_Certificado(SuccessMessageMixin, CreateView):
     form_class = CertificadoForm
     template_name = "registro/guardar_certificado.html"
     success_url = reverse_lazy('registro:buscar')
-    success_message = "Se guardo el certificado con éxito"
+    success_message = "Se guardó el certificado con éxito"
 
 
 class Lista_Certificados(ListView):
@@ -79,7 +79,8 @@ def busqueda(request):
     """
     if 'q' in request.GET and request.GET['q']:
         q = request.GET['q']
-        certificados = Certificado.objects.filter(cedula__icontains=q)
+        #certificados = Certificado.objects.filter(cedula__icontains=q)
+        certificados = Certificado.objects.filter(cedula=q)
         if certificados:
             return render(request, 'registro/buscar.html',  {'certificados': certificados, 'query': q})
         else:
