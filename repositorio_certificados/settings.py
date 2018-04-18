@@ -24,6 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'v(^-f&xviz-%eh_vp*ja$1(7j1^%kgu8c%2^%5r$1(m7dvtq=x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+#DEBUG = False
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
@@ -56,6 +57,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
+        # Desactivar la línea de arriba y activar la de abajo para que se muetren las plantillas de error 404 y 500.
+        #'DIRS': ['registro/templates/registro/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
