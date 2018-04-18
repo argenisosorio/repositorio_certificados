@@ -56,9 +56,9 @@ ROOT_URLCONF = 'repositorio_certificados.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        #'DIRS': [],
         # Desactivar la línea de arriba y activar la de abajo para que se muetren las plantillas de error 404 y 500.
-        #'DIRS': ['registro/templates/registro/'],
+        'DIRS': ['registro/templates/registro/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
