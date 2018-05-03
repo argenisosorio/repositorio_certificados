@@ -11,6 +11,33 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
+"""
+Nombre del software: Software - Repositorio de Certificados Digitales.
+
+Descripción: Repositorio de Certificados Digitales de Eventos o Cursos dictados por la Fundación CENDITEL.
+
+Nombre del licenciante y año: Fundación CENDITEL (2018)
+
+Autor: Ing. Argenis Osorio, Director de Desarrollo de la Fundación CENDITEL.
+
+La Fundación Centro Nacional de Desarrollo e Investigación en Tecnologías Libres (CENDITEL),
+ente adscrito al Ministerio del Poder Popular para Educación Universitaria, Ciencia y Tecnología
+(MPPEUCT), concede permiso para usar, copiar, modificar y distribuir libremente y sin fines
+comerciales el "Software - Repositorio de Certificados Digitales", sin garantía
+alguna, preservando el reconocimiento moral de los autores y manteniendo los mismos principios
+para las obras derivadas, de conformidad con los términos y condiciones de la licencia de
+software de la Fundación CENDITEL.
+
+El software es una creación intelectual necesaria para el desarrollo económico y social
+de la nación, por tanto, esta licencia tiene la pretensión de preservar la libertad de
+este conocimiento para que contribuya a la consolidación de la soberanía nacional.
+
+Cada vez que copie y distribuya el "Software - Repositorio de Certificados Digitales"
+debe acompañarlo de una copia de la licencia. Para más información sobre los términos y condiciones
+de la licencia visite la siguiente dirección electrónica:
+http://conocimientolibre.cenditel.gob.ve/licencia-de-software-v-1-3/
+"""
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
