@@ -28,9 +28,13 @@ $ pip install -r repositorio_certificados/requirements.txt
 ```
 $ cd repositorio_certificados
 
+$ cp repositorio_certificados/settings.py_example repositorio_certificados/settings.py
+
 $ python manage.py makemigrations registro
 
 $ python manage.py migrate
+
+$ python manage.py createsuperuser
 
 $ python manage.py runserver
 ```
