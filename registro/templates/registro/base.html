@@ -52,76 +52,103 @@
     <br />
  
     <div class="container theme-showcase" role="main">
+      <div class="well">
 
-      <div class="">
-        <img class="img-responsive" src="{% static 'img/cintillo_cenditel.png' %}" width="100%"></img>
+        <div class="">
+          <img class="img-responsive" src="{% static 'img/cintillo_cenditel.png' %}" width="100%"></img>
+        </div>
+
+        <br />
+
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-success alert-dismissable">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>
+                  {% if message.tags %}{% endif %}
+                  {{ message }}
+                </strong>
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        <div class="">
+
+          <!-- Navbar
+          ================================================== -->
+          <nav class="navbar navbar-default navbar-default-menu">
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                  <i class="glyphicon glyphicon-home"></i>
+                  Inicio
+                </a>
+              </div>
+              <div id="navbar" class="navbar-collapse collapse">
+                {% if request.user.is_authenticated %}
+                <ul class="nav navbar-nav">
+                  <li>
+                    <a href="{% url 'registro:subir_data' %}">
+                      <i class="glyphicon glyphicon-ok"></i>
+                      Subir data .zip
+                    </a>
+                  </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                  <li>
+                    <a href="{% url 'registro:descomprimir_zip' %}">
+                      <i class="glyphicon glyphicon-ok"></i>
+                      Descomprimir .zip y borrar .zip
+                    </a>
+                  </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                  <li>
+                    <a href="{% url 'registro:guardar_certificado' %}">
+                      <i class="glyphicon glyphicon-ok"></i>
+                      Subir certificado
+                    </a>
+                  </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                  <li>
+                    <a href="{% url 'registro:lista_certificados' %}">
+                      <i class="glyphicon glyphicon-ok"></i>
+                      Lista de certificados
+                    </a>
+                  </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                  <li>
+                    <a href="{% url 'registro:salir' %}">
+                      <i class="glyphicon glyphicon-log-out"></i>
+                      Cerrar sesión
+                    </a>
+                  </li>
+                </ul>
+                {% else %}
+                {% endif %}
+              </div>
+            </div>
+          </nav><!-- End navbar -->
+          <br />
+          {% block cuerpo %}
+          {% endblock %}
+
+        </div>
+
+        <br />
+        <br />
+
       </div>
 
-      <br />
-
-      {% if messages %}
-        {% for message in messages %}
-          <div class="alert alert-success alert-dismissable">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-              <strong>
-                {% if message.tags %}{% endif %}
-                {{ message }}
-              </strong>
-          </div>
-        {% endfor %}
-      {% endif %}
-
-      <div class="">
-
-        <!-- Navbar
-        ================================================== -->
-        <nav class="navbar navbar-default navbar-default-menu">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="/">
-                <i class="glyphicon glyphicon-home"></i>
-                Inicio
-              </a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              {% if request.user.is_authenticated %}
-              <ul class="nav navbar-nav">
-                <li><a href="{% url 'registro:subir_data' %}">Subir data</a></li>
-              </ul>
-              <ul class="nav navbar-nav">
-                <li><a href="{% url 'registro:guardar_certificado' %}">Subir certificado</a></li>
-              </ul>
-              <ul class="nav navbar-nav">
-                <li><a href="{% url 'registro:lista_certificados' %}">Lista de certificados</a></li>
-              </ul>
-              <ul class="nav navbar-nav">
-                <li><a href="{% url 'registro:salir' %}">Cerrar sesión</a></li>
-              </ul>
-              {% else %}
-              {% endif %}
-            </div>
-          </div>
-        </nav><!-- End navbar -->
-        {% block cuerpo %}
-        {% endblock %}
-
-      </div>
-
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
-      <div class="welll">
+      <div class="well">
         <div align="center">
           <b>
             <a href="http://www.cenditel.gob.ve" target="_blank">

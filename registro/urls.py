@@ -21,8 +21,8 @@ urlpatterns = patterns('',
     url(r'^busqueda/media/(?P<path>.*)$', 'django.views.static.serve', {
         'document_root': settings.MEDIA_ROOT,
     }),
+    url(r'^descomprimir_zip$', login_required(descomprimir_zip), name='descomprimir_zip'),
     url(r'^$', buscar, name='buscar'),
-    url(r'^busqueda/$', busqueda, name='busqueda'),
     url(r'^busqueda/$', busqueda, name='busqueda'),
     url(r'^salir$', login_required(views.Salir.as_view()), name='salir'),
 )

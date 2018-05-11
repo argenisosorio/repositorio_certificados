@@ -13,6 +13,8 @@ from django.shortcuts import redirect
 from django.contrib.auth import logout
 from django.contrib import messages
 from django.shortcuts import render_to_response
+from django.template import RequestContext
+import os
 
 
 class Subir_data(SuccessMessageMixin, CreateView):
@@ -24,6 +26,41 @@ class Subir_data(SuccessMessageMixin, CreateView):
     template_name = "registro/subir_data.html"
     success_url = reverse_lazy('registro:subir_data')
     success_message = "La data se guardo con éxito"
+
+    def post(self, request, *args, **kwargs):
+        self.object = None
+        #print "----------------"
+        #print "Entro en el método post de Subir_data"
+        #print "----------------"
+        #a = os.getcwd()
+        #print a
+        #os.chdir(a+'/media/')
+        #os.system("ls -l")
+        #print "Listo el contenido del directorio"
+        return super(Subir_data, self).post(request, *args, **kwargs)
+
+
+def descomprimir_zip(request):
+    """
+    Función que sirve para descomprimir y luego borrar el .zip adjuntado
+    anteriormente.
+    """
+    #print "---Entro en la funcion descomprimir"
+    a = os.getcwd()
+    #print a
+    os.chdir(a+'/media')
+    #print "---Listo el contenido de /media/"
+    os.system("unzip *.zip")
+    #print "---Descomprimió el .zip"
+    os.system("rm *.zip")
+    #print "---Borro el .zip"
+    #os.system("cd ..")
+    os.chdir(a)
+    #print "---Ahora estoy en:"
+    #print a
+    #return render(request, 'registro/buscar.html')
+    messages = ['¡Se descomprimió el .zip con éxito y luego se borró el .zip!']
+    return render_to_response('registro/buscar.html', {'messages': messages}, context_instance=RequestContext(request))
 
 
 class Guardar_Certificado(SuccessMessageMixin, CreateView):
