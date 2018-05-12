@@ -48,8 +48,8 @@ def descomprimir_zip(request):
     #print "---Entro en la funcion descomprimir"
     a = os.getcwd()
     #print a
-    os.chdir(a+'/media')
-    #print "---Listo el contenido de /media/"
+    #os.chdir(a+'/media')
+    os.chdir(settings.MEDIA_ROOT)
     os.system("unzip *.zip")
     #print "---Descomprimió el .zip"
     os.system("rm *.zip")
