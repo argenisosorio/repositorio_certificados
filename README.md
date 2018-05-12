@@ -2,7 +2,14 @@
 
 Creado por dM
 
-## Versiones
+## Paquetes requeridos
+
+De GNU/Linux Debian
+```
+sqlite3
+```
+
+De Python
 ```
 Django==1.8.8
 Python==2.7

@@ -45,21 +45,24 @@ def descomprimir_zip(request):
     Función que sirve para descomprimir y luego borrar el .zip adjuntado
     anteriormente.
     """
-    #print "---Entro en la funcion descomprimir"
-    a = os.getcwd()
-    #print a
-    #os.chdir(a+'/media')
-    os.chdir(settings.MEDIA_ROOT)
-    os.system("unzip *.zip")
-    #print "---Descomprimió el .zip"
-    os.system("rm *.zip")
-    #print "---Borro el .zip"
-    #os.system("cd ..")
-    os.chdir(a)
-    #print "---Ahora estoy en:"
-    #print a
-    #return render(request, 'registro/buscar.html')
+    a = os.getcwd() # Guardar el directorio actual en la variable a.
+    #os.chdir(a+'/media') # Cambiarse a /media desde la raíz del proyecto.
+    os.chdir(settings.MEDIA_ROOT) # Cambiarse a /media desde la raíz del proyecto.
+    os.system("unzip *.zip") # Descomprimir todos los .zip del directorio.
+    os.system("rm *.zip") # Remover todos los .zip del directorio.
+    os.chdir(a) # Cambiarse al directorio raíz del proyecto.
     messages = ['¡Se descomprimió el .zip con éxito y luego se borró el .zip!']
+    return render_to_response('registro/buscar.html', {'messages': messages}, context_instance=RequestContext(request))
+
+
+def insertar_csv(request):
+    """
+    Función que permite insertar la data .csv en la base de datos sqlite.
+    """
+    a = os.getcwd() # Guardar el directorio actual en la variable a.
+    os.system("bash insert_csv.sh") # Ejecutar el script en bash 
+    os.chdir(a) # Cambiarse al directorio raíz del proyecto.
+    messages = ['¡Se insertó la data .csv correctamente!']
     return render_to_response('registro/buscar.html', {'messages': messages}, context_instance=RequestContext(request))
 
 
