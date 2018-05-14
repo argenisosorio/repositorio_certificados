@@ -7,7 +7,7 @@
 <div align="center">
   <h1>Repositorio de Certificados Digitales</h1>
   <br />
-  <form action="/busqueda/" method="get" onsubmit="return checkform(this);">
+  <form action="{% url 'registro:busqueda' %}" method="get" onsubmit="return checkform(this);">
     <h4>
       Por favor escriba su cédula de identidad y el código
       <input type="hidden" id="txtCaptcha"/>
