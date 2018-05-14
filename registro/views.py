@@ -60,7 +60,8 @@ def insertar_csv(request):
     Función que permite insertar la data .csv en la base de datos sqlite.
     """
     a = os.getcwd() # Guardar el directorio actual en la variable a.
-    os.system("bash insert_csv.sh") # Ejecutar el script en bash 
+    #os.system("bash insert_csv.sh") # Ejecutar el script en bash.
+    os.system("bash insert_csv.sh %s %s" % (settings.MEDIA_ROOT, settings.DATABASES['default']['NAME'])) # Ejecutar el script en bash.
     os.chdir(a) # Cambiarse al directorio raíz del proyecto.
     messages = ['¡Se insertó la data .csv correctamente!']
     return render_to_response('registro/buscar.html', {'messages': messages}, context_instance=RequestContext(request))
