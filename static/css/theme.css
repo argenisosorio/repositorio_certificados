@@ -2,6 +2,7 @@ body {
   padding-top: 20px;
   padding-bottom: 30px;
   background: #ffffff;
+  background: #ecf4ff;
   /*background-image: url("../img/intro3.svg") !important;*/
   /*background-image: url("../img/y.png") !important;
   background-size: 100%;*/
@@ -26,7 +27,9 @@ body {
 }
 
 .navbar-cintillo {
-  background: #FFFFFF;
+  /*background: #FFFFFF;*/
+  background: #275a9b !important;
+  border-radius: 0px !important;
 }
 
 .well_cuerpo {
@@ -84,4 +87,14 @@ body {
 
 a {
   color: #000000;
+}
+
+.well-footer {
+  background: #275a9b;
+  color: red !important;
+  border-radius: 0px !important;
+}
+
+.well-footer a{
+  color: #FFFFFF;
 }
