@@ -9,12 +9,12 @@
   <br />
   <form action="{% url 'registro:busqueda' %}" method="get" onsubmit="return checkform(this);">
     <h4>
-      Por favor escriba su cédula de identidad y el código
+      Por favor escriba su cédula de identidad o número de identificación y el código
       <input type="hidden" id="txtCaptcha"/>
       <span id="txtCaptchaDiv"></span>
     </h4>
     <br />
-    <input type="number" name="q" id="txtInput2" placeholder="Cédula" maxlength="8" min="999999" required>
+    <input type="text" name="q" id="txtInput2" placeholder="Cédula ó ID" maxlength="20" min="999999" required>
     <br />
     <br />
     <input type="text" name="txtInput1" id="txtInput1" placeholder="Código" required/>
@@ -32,7 +32,7 @@
       <thead>
         <tr>
           <th><b>Nombre y Apellido</b></th>
-          <th><b>Cédula</b></th>
+          <th><b>Cédula o ID</b></th>
           <th><b>Evento / Curso</b></th>
           <th><b>Rol</b></th>
           <th><b>Ubicación electróica</b></th>

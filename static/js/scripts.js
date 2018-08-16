@@ -5,12 +5,14 @@ $("document").ready(function(){
   | Función que desabilita el copy and paste.
   |------------------------------------------
   */
-   $('#txtInput1').on("cut copy paste",function(e) {
-     e.preventDefault();
-   });
-   $('#txtInput2').on("cut copy paste",function(e) {
-     e.preventDefault();
-   });
+  /*
+  $('#txtInput1').on("cut copy paste",function(e) {
+    e.preventDefault();
+  });
+  $('#txtInput2').on("cut copy paste",function(e) {
+    e.preventDefault();
+  });
+  */
   /*
   |--------------------------------------------
   | Función que desabilita el campo del código.
