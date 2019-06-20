@@ -24,7 +24,7 @@
   </form>
   <br />
   {% if certificados %}
-  <p>Estas buscado: <strong>{{ query }}</strong></p>
+  <p><h4>Estas buscado la cédula o número de identificación: <strong>{{ query }}</strong></h4></p>
     <span class="certificados_encontrados"><b>Certificados encontrados: {{ certificados|length }} certificado/s.</b></span>
     <br />
     <br />
@@ -64,11 +64,12 @@
       {% endfor %}
     </table>
     <br />
+    <hr />
     <br />
     <p>
-      <b>Los certificados están firmados electrónicamente, luego<br />
+      <h4>Los certificados están firmados electrónicamente, luego<br />
       de descargarlos puede verificar la firma usando nuestro<br />
-      Portal de Firma Electrónica y Verificación.</b>
+      Portal de Firma Electrónica y Verificación.</h4>
     </p>
     <a href="https://murachi.cenditel.gob.ve/pruebaservicioweb/#verificar">
       <button class="btn btn-primary">Verificar</button>

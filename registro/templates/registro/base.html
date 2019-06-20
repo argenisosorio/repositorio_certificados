@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     {% load staticfiles %}
-    <link rel="icon" href="{% static 'img/cenditel-logo.png' %}">
+    <link rel="icon" href="{% static 'img/cenditel-logo-blue.png' %}">
     <title>
       {% block titulo %}Repositorio de certificados digitales de CENDITEL{% endblock %}
     </title>
@@ -18,7 +18,7 @@
     <link href="{% static 'css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
     <!-- Styles - css
     ================================================== -->
-    <link href="{% static 'css/theme.css' %}?version=1.0" rel="stylesheet">
+    <link href="{% static 'css/theme.css' %}?version=1.1" rel="stylesheet">
     <!-- Others - js
     ================================================== -->
     <script src="{% static 'js/ie-emulation-modes-warning.js' %}"></script>
@@ -49,12 +49,86 @@
     <br />
     <br />
     <br />
-    <br />
- 
-    <div class="container theme-showcase" role="main">
 
-      <div class="well">
+    <!-- Navbar
+    ================================================== -->
+    <nav class="navbar navbar-default navbar-default-menu">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www.cenditel.gob.ve/certificados">
+            <i class="glyphicon glyphicon-home"></i>
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          {% if request.user.is_authenticated %}
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="{% url 'registro:subir_data' %}">
+                <i class="glyphicon glyphicon-ok"></i>
+                Subir data .zip
+              </a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="{% url 'registro:descomprimir_zip' %}">
+                <i class="glyphicon glyphicon-ok"></i>
+                Descomprimir .zip y borrar .zip
+              </a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="{% url 'registro:insertar_csv' %}">
+                <i class="glyphicon glyphicon-ok"></i>
+                Insertar data .csv
+              </a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="{% url 'registro:guardar_certificado' %}">
+                <i class="glyphicon glyphicon-ok"></i>
+                Subir certificado
+              </a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="{% url 'registro:lista_certificados' %}">
+                <i class="glyphicon glyphicon-ok"></i>
+                Lista de certificados
+              </a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="{% url 'registro:salir' %}">
+                <i class="glyphicon glyphicon-log-out"></i>
+                Cerrar sesión
+              </a>
+            </li>
+          </ul>
+          {% else %}
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+    <!-- End navbar -->
 
+    <!-- section-white
+    ================================================== -->
+    <div class="jumbotron section-white">
+
+      <!-- Container
+      ================================================== -->
+      <div class="container theme-showcase" role="main">
         {% if messages %}
           {% for message in messages %}
             <div class="alert alert-success alert-dismissable">
@@ -66,111 +140,46 @@
             </div>
           {% endfor %}
         {% endif %}
+        <br />
+        {% block cuerpo %}
+        {% endblock %}
+        <br />
+        <br />
+      </div>
+      <!-- End Container -->
 
-        <div class="">
+    </div>
+    <!-- End section-white -->
 
-          <!-- Navbar
-          ================================================== -->
-          <nav class="navbar navbar-default navbar-default-menu">
-            <div class="container">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="https://www.cenditel.gob.ve/certificados">
-                  <i class="glyphicon glyphicon-home"></i>
-                </a>
-              </div>
-              <div id="navbar" class="navbar-collapse collapse">
-                {% if request.user.is_authenticated %}
-                <ul class="nav navbar-nav">
-                  <li>
-                    <a href="{% url 'registro:subir_data' %}">
-                      <i class="glyphicon glyphicon-ok"></i>
-                      Subir data .zip
-                    </a>
-                  </li>
-                </ul>
-                <ul class="nav navbar-nav">
-                  <li>
-                    <a href="{% url 'registro:descomprimir_zip' %}">
-                      <i class="glyphicon glyphicon-ok"></i>
-                      Descomprimir .zip y borrar .zip
-                    </a>
-                  </li>
-                </ul>
-                <ul class="nav navbar-nav">
-                  <li>
-                    <a href="{% url 'registro:insertar_csv' %}">
-                      <i class="glyphicon glyphicon-ok"></i>
-                      Insertar data .csv
-                    </a>
-                  </li>
-                </ul>
-                <ul class="nav navbar-nav">
-                  <li>
-                    <a href="{% url 'registro:guardar_certificado' %}">
-                      <i class="glyphicon glyphicon-ok"></i>
-                      Subir certificado
-                    </a>
-                  </li>
-                </ul>
-                <ul class="nav navbar-nav">
-                  <li>
-                    <a href="{% url 'registro:lista_certificados' %}">
-                      <i class="glyphicon glyphicon-ok"></i>
-                      Lista de certificados
-                    </a>
-                  </li>
-                </ul>
-                <ul class="nav navbar-nav">
-                  <li>
-                    <a href="{% url 'registro:salir' %}">
-                      <i class="glyphicon glyphicon-log-out"></i>
-                      Cerrar sesión
-                    </a>
-                  </li>
-                </ul>
-                {% else %}
-                {% endif %}
-              </div>
-            </div>
-          </nav><!-- End navbar -->
-          <br />
-          {% block cuerpo %}
-          {% endblock %}
+    <!-- section-blue
+    ================================================== -->
+    <div class="jumbotron section-blue">
 
+      <div class="container">
+
+        <div class="well-footer">
+          <div align="center">
+            <b>
+              <a href="http://www.cenditel.gob.ve" target="_blank">
+                Desarrollado en el Centro Nacional de Desarrollo e Investigacion en Tecnologias Libres - CENDITEL
+              </a>
+              <br />
+              <br />
+              <a href="http://derechoinformatico.cenditel.gob.ve/licencia-de-contenido/" target="_blank">
+                <img src="{% static 'img/lc-lc.png' %}" width="100px"></img>
+              </a>
+              <a href="http://derechoinformatico.cenditel.gob.ve/licencia-de-software/" target="_blank">
+                <img src="{% static 'img/lc-ls-icon.png' %}" width="100px"></img>
+              </a>
+            </b>
+          </div>
         </div>
-
-        <br />
-        <br />
 
       </div>
 
-      <div class="well well-footer">
-        <div align="center">
-          <b>
-            <a href="http://www.cenditel.gob.ve" target="_blank">
-              Desarrollado en el Centro Nacional de Desarrollo e Investigacion en Tecnologias Libres - CENDITEL
-            </a>
-            <br />
-            <br />
-            <a href="http://derechoinformatico.cenditel.gob.ve/licencia-de-contenido/" target="_blank">
-              <img src="{% static 'img/lc-lc.png' %}" width="100px"></img>
-            </a>
-            <a href="http://derechoinformatico.cenditel.gob.ve/licencia-de-software/" target="_blank">
-              <img src="{% static 'img/lc-ls-icon.png' %}" width="100px"></img>
-            </a>
-          </b>
-        </div>
-      </div>
+    </div>
+    <!-- End section-blue -->
 
-    </div> <!-- /container -->
-
-  </body>
-
-  <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+<script src="{% static 'js/scripts.js' %}"></script>
 </html>

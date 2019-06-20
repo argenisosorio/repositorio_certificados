@@ -1,8 +1,8 @@
 body {
   padding-top: 20px;
   padding-bottom: 30px;
-  background: #ffffff;
-  background: #ecf4ff;
+  /*background: #ffffff;*/
+  background: #275a9b;
   /*background-image: url("../img/intro3.svg") !important;*/
   /*background-image: url("../img/y.png") !important;
   background-size: 100%;*/
@@ -62,6 +62,9 @@ body {
   /*border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);*/
+  margin-top: -7px;
+  margin-bottom: 0px;
+  /*border: ridge 1px red;*/
   border: none !important;
 }
 
@@ -84,17 +87,64 @@ body {
 .well {
   background: #ffffff;
 }
-
 a {
   color: #000000;
 }
-
-.well-footer {
-  background: #275a9b;
-  color: red !important;
-  border-radius: 0px !important;
-}
-
-.well-footer a{
+.well-footer a {
   color: #FFFFFF;
+}
+.jumbotron {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  color: inherit;
+  background-color: #eee;
+}
+.jumbotron h1,
+.jumbotron .h1 {
+  color: inherit;
+}
+.jumbotron p {
+  margin-bottom: 15px;
+  font-size: 21px;
+  font-weight: 200;
+}
+.jumbotron > hr {
+  border-top-color: #d5d5d5;
+}
+.container .jumbotron,
+.container-fluid .jumbotron {
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 6px;
+}
+.jumbotron .container {
+  max-width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .jumbotron {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .container .jumbotron,
+  .container-fluid .jumbotron {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+  .jumbotron h1,
+  .jumbotron .h1 {
+    font-size: 63px;
+  }
+}
+.section-white {
+  border-radius: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background: #FFFFFF;
+}
+.section-blue {
+  background: #275a9b;
+  border-radius: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
