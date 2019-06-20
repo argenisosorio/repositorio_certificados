@@ -18,7 +18,7 @@
     <link href="{% static 'css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
     <!-- Styles - css
     ================================================== -->
-    <link href="{% static 'css/theme.css' %}" rel="stylesheet">
+    <link href="{% static 'css/theme.css' %}?version=1.0" rel="stylesheet">
     <!-- Others - js
     ================================================== -->
     <script src="{% static 'js/ie-emulation-modes-warning.js' %}"></script>
@@ -53,10 +53,6 @@
  
     <div class="container theme-showcase" role="main">
 
-      <img class="img-responsive" src="{% static 'img/cintillo_cenditel.png' %}" width="100%"></img>
-
-      <br />
-
       <div class="well">
 
         {% if messages %}
@@ -86,7 +82,6 @@
                 </button>
                 <a class="navbar-brand" href="https://www.cenditel.gob.ve/certificados">
                   <i class="glyphicon glyphicon-home"></i>
-                  Inicio
                 </a>
               </div>
               <div id="navbar" class="navbar-collapse collapse">
@@ -163,10 +158,10 @@
             </a>
             <br />
             <br />
-            <a href="http://conocimientolibre.cenditel.gob.ve/licencias/" target="_blank">
+            <a href="http://derechoinformatico.cenditel.gob.ve/licencia-de-contenido/" target="_blank">
               <img src="{% static 'img/lc-lc.png' %}" width="100px"></img>
             </a>
-            <a href="http://conocimientolibre.cenditel.gob.ve/licencia-de-software-v-1-3/" target="_blank">
+            <a href="http://derechoinformatico.cenditel.gob.ve/licencia-de-software/" target="_blank">
               <img src="{% static 'img/lc-ls-icon.png' %}" width="100px"></img>
             </a>
           </b>
