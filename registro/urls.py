@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 urlpatterns = patterns('',
     #url(r'^$', Index.as_view(), name='index'),
+    url(r'^$', buscar, name='buscar'),
     url(r'^lista_certificados$', login_required(views.Lista_Certificados.as_view()), name='lista_certificados'),
     url(r'^subir_data$', login_required(views.Subir_data.as_view()), name='subir_data'),
     url(r'^guardar_certificado$', login_required(views.Guardar_Certificado.as_view()), name='guardar_certificado'),
@@ -23,7 +24,6 @@ urlpatterns = patterns('',
     }),
     url(r'^descomprimir_zip$', login_required(descomprimir_zip), name='descomprimir_zip'),
     url(r'^insertar_csv$', login_required(insertar_csv), name='insertar_csv'),
-    url(r'^$', buscar, name='buscar'),
     url(r'^busqueda/$', busqueda, name='busqueda'),
     url(r'^salir$', login_required(views.Salir.as_view()), name='salir'),
 )
