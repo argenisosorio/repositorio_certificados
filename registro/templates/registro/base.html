@@ -68,51 +68,55 @@
         <div id="navbar" class="navbar-collapse collapse">
           {% if request.user.is_authenticated %}
           <ul class="nav navbar-nav">
-            <li>
-              <a href="{% url 'registro:subir_data' %}">
-                <i class="glyphicon glyphicon-ok"></i>
-                Subir data .zip
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="glyphicon glyphicon-menu-hamburger"></i>
+                &nbsp;Menú <span class="caret"></span>
               </a>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="{% url 'registro:descomprimir_zip' %}">
-                <i class="glyphicon glyphicon-ok"></i>
-                Descomprimir .zip y borrar .zip
-              </a>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="{% url 'registro:insertar_csv' %}">
-                <i class="glyphicon glyphicon-ok"></i>
-                Insertar data .csv
-              </a>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="{% url 'registro:guardar_certificado' %}">
-                <i class="glyphicon glyphicon-ok"></i>
-                Subir certificado
-              </a>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="{% url 'registro:lista_certificados' %}">
-                <i class="glyphicon glyphicon-ok"></i>
-                Lista de certificados
-              </a>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="{% url 'registro:salir' %}">
-                <i class="glyphicon glyphicon-log-out"></i>
-                Cerrar sesión
-              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="{% url 'registro:subir_data' %}">
+                    <i class="glyphicon glyphicon-ok"></i>
+                    Subir data .zip
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'registro:descomprimir_zip' %}">
+                    <i class="glyphicon glyphicon-ok"></i>
+                    Descomprimir .zip y borrar .zip
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'registro:subir_data_csv' %}">
+                    <i class="glyphicon glyphicon-ok"></i>
+                    Subir data .csv
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'registro:insertar_csv' %}">
+                    <i class="glyphicon glyphicon-ok"></i>
+                    Insertar data .csv
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'registro:guardar_certificado' %}">
+                    <i class="glyphicon glyphicon-ok"></i>
+                    Subir certificado
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'registro:lista_certificados' %}">
+                    <i class="glyphicon glyphicon-ok"></i>
+                    Lista de certificados
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'registro:salir' %}">
+                    <i class="glyphicon glyphicon-log-out"></i>
+                    Cerrar sesión
+                  </a>
+                </li>
+              </ul>
             </li>
           </ul>
           {% else %}

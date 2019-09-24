@@ -1,13 +1,13 @@
 {% extends "registro/base.html" %}
-{% block titulo %}Subir data zip{% endblock %}
+{% block titulo %}Subir data csv{% endblock %}
 {% block cuerpo %}
-<h2>Subir data .zip</h2>
+<h2>Subir data .csv</h2>
 <form method="post" enctype="multipart/form-data">{% csrf_token %}
   <label>{{ form.data_zip.label }}:</label>
   {{ form.data_zip }}
   <hr />
   <label>{{ form.descripcion.label }}:</label>
   {{ form.descripcion }}
-  <button type="submit">Subir .zip</button>
+  <button type="submit">Subir .csv</button>
 </form>
 {% endblock %}

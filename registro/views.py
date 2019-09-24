@@ -40,6 +40,21 @@ class Subir_data(SuccessMessageMixin, CreateView):
         return super(Subir_data, self).post(request, *args, **kwargs)
 
 
+class Subir_data_csv(SuccessMessageMixin, CreateView):
+    """
+    Clase que permite subir la data .csv en el servidor.
+    """
+    model = Data
+    form_class = DataForm
+    template_name = "registro/subir_data_csv.html"
+    success_url = reverse_lazy('registro:subir_data')
+    success_message = "La data se guardo con éxito"
+
+    def post(self, request, *args, **kwargs):
+        self.object = None
+        return super(Subir_data_csv, self).post(request, *args, **kwargs)
+
+
 def descomprimir_zip(request):
     """
     Función que sirve para descomprimir y luego borrar el .zip adjuntado
