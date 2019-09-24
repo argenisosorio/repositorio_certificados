@@ -69,6 +69,6 @@ sqlite> .exit
 
 2) Descomprimir y borrar el fichero .zip con la opción "Descomprimir .zip y  borrar .zip"
 
-3) Subir el archivo data_final.csv desde el formulario disponible desde /subir_data
+3) Subir el archivo data_final.csv desde el formulario disponible desde /subir_data_csv
 
 4) Insertar la data en la base de datos con la opción "Insertar data .csv"
