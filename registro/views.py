@@ -15,6 +15,7 @@ from django.contrib import messages
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 import os
+import csv
 
 
 class Subir_data(SuccessMessageMixin, CreateView):
@@ -77,6 +78,28 @@ def insertar_csv(request):
     a = os.getcwd() # Guardar el directorio actual en la variable a.
     #os.system("bash insert_csv.sh") # Ejecutar el script en bash.
     os.system("bash insert_csv.sh %s %s" % (settings.MEDIA_ROOT, settings.DATABASES['default']['NAME'])) # Ejecutar el script en bash.
+    os.chdir(a) # Cambiarse al directorio raíz del proyecto.
+    messages = ['¡Se insertó la data .csv correctamente!']
+    return render_to_response('registro/buscar.html', {'messages': messages}, context_instance=RequestContext(request))
+
+
+def insertar_data_csv(request, template_name='registro/lista_certificados.html'):
+    """
+    Función que permite insertar los datos del fichero CSV en la base de datos.
+    """
+    with open(settings.MEDIA_ROOT+'/data_final.csv', 'r') as listado:
+        datos = csv.reader(listado, delimiter=',') # Separar la data por coma.
+        for row in datos:
+            nombre_completo = row[0]
+            cedula = row[1]
+            evento_curso = row[2]
+            rol = row[3]
+            certificado = row[4]
+            uploaded_at = row[5]
+            Certificado.objects.create(nombre_completo=nombre_completo, cedula=cedula, evento_curso=evento_curso, rol=rol, certificado=certificado,uploaded_at=uploaded_at)
+    listado.close()
+    a = os.getcwd() # Guardar el directorio actual en la variable a.
+    os.system("bash delete_csv.sh %s %s" % (settings.MEDIA_ROOT, settings.DATABASES['default']['NAME'])) # Ejecutar el script en bash.
     os.chdir(a) # Cambiarse al directorio raíz del proyecto.
     messages = ['¡Se insertó la data .csv correctamente!']
     return render_to_response('registro/buscar.html', {'messages': messages}, context_instance=RequestContext(request))
