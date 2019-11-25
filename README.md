@@ -68,7 +68,7 @@ sqlite> .exit
 1) Subir un archivo .zip que contenga los certificados desde el formulario disponible desde /subir_data, el .zip
 debe contener una carpeta con el nombre del evento y dentro deben estar los certificados.
 
-2) Descomprimir y borrar el fichero .zip con la opción "Descomprimir .zip y  borrar .zip"
+2) Descomprimir y borrar el fichero .zip con la opción "Descomprimir .zip y borrar .zip"
 
 3) Subir el archivo data_final.csv desde el formulario disponible desde /subir_data_csv
 
