@@ -11,6 +11,7 @@
       <th><b>Cédula o ID</b></th>
       <th><b>Evento / Curso</b></th>
       <th><b>Rol</b></th>
+      <th><b>Fecha</b></th>
       <th><b>Ubicación electróica</b></th>
       <th><b>Acciones</b></th>
     </tr>
@@ -32,6 +33,9 @@
       </td>
       <td>
         {{ x.rol }}
+      </td>
+      <td>
+        {{ x.uploaded_at }}
       </td>
         <td>
           <a href="media/{{ x.certificado }}" target="_blank">

@@ -24,7 +24,7 @@
   </form>
   <br />
   {% if certificados %}
-  <p><h4>Estas buscado la cédula o número de identificación: <strong>{{ query }}</strong></h4></p>
+  <p><h4>Estás buscando la cédula o número de identificación: <strong>{{ query }}</strong></h4></p>
     <span class="certificados_encontrados"><b>Certificados encontrados: {{ certificados|length }} certificado/s.</b></span>
     <br />
     <br />
@@ -35,6 +35,7 @@
           <th><b>Cédula o ID</b></th>
           <th><b>Evento / Curso</b></th>
           <th><b>Rol</b></th>
+          <th><b>Fecha</b></th>
           <th><b>Ubicación electróica</b></th>
         </tr>
       </thead>
@@ -52,6 +53,9 @@
           </td>
           <td>
             {{ x.rol }}
+          </td>
+          <td>
+            {{ x.uploaded_at }}
           </td>
           <td>
             <a href="media/{{ x.certificado }}" target="_blank">
