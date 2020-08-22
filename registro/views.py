@@ -14,6 +14,7 @@ from django.contrib.auth import logout
 from django.contrib import messages
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from datetime import datetime
 import os
 import csv
 
@@ -103,6 +104,14 @@ def insertar_data_csv(request, template_name='registro/lista_certificados.html')
     os.chdir(a) # Cambiarse al directorio raíz del proyecto.
     messages = ['¡Se insertó la data .csv correctamente!']
     return render_to_response('registro/buscar.html', {'messages': messages}, context_instance=RequestContext(request))
+
+def formato_fecha(request):
+    """
+    Función que cambia el formato de hora y fecha de python
+    """
+    uploaded_at = datetime.now()
+    fecha_hora = uploaded_at.strftime("%d-%m-%Y %H:%M")
+    return render('registro/lista_certificados.html', {'uploaded_at': fecha_hora})
 
 
 class Guardar_Certificado(SuccessMessageMixin, CreateView):

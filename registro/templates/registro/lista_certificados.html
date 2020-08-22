@@ -35,7 +35,7 @@
         {{ x.rol }}
       </td>
       <td>
-        {{ x.uploaded_at }}
+        {{ x.uploaded_at | date:"d/m/Y, h:i A" }}
       </td>
         <td>
           <a href="media/{{ x.certificado }}" target="_blank">
