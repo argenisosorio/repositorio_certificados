@@ -130,7 +130,7 @@ class Lista_Certificados(ListView):
     Clase que permite listar los certificados registrados.
     """
     model = Certificado
-    queryset = Certificado.objects.order_by('-uploaded_at')
+    #queryset = Certificado.objects.order_by('-uploaded_at')
     template_name = "registro/lista_certificados.html"
 
 
@@ -169,9 +169,9 @@ def busqueda(request):
     if 'q' in request.GET and request.GET['q']:
         q = request.GET['q']
         #certificados = Certificado.objects.filter(cedula__icontains=q)
-        certificados = Certificado.objects.filter(cedula=q)
+        certificados = Certificado.objects.filter(cedula=q).order_by('-uploaded_at')
         if certificados:
-            certificados = Certificado.objects.order_by('-uploaded_at')
+            #certificados = Certificado.objects.order_by('-uploaded_at')
             return render(request, 'registro/buscar.html',  {'certificados': certificados, 'query': q})
         else:
             messages = ['No se encontró ningún certificado.']
