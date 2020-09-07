@@ -20,12 +20,12 @@
     <input type="text" name="txtInput1" id="txtInput1" placeholder="Código" required/>
     <br />
     <br />
-    <input type="submit" class="btn btn-success" value="Buscar">
+    <input type="submit" class="btn btn-success" value="BUSCAR">
   </form>
   <br />
   {% if certificados %}
   <p><h4>Estás buscando la cédula o número de identificación: <strong>{{ query }}</strong></h4></p>
-    <span class="certificados_encontrados"><b>Certificados encontrados: {{ certificados|length }} certificado/s.</b></span>
+    <span class="certificados_encontrados"><h4>Certificados encontrados: {{ certificados|length }} certificado/s.</h4></span>
     <br />
     <br />
     <table class="table table-striped">
@@ -59,8 +59,10 @@
           </td>
           <td>
             <a href="media/{{ x.certificado }}" target="_blank">
-              Descargar
-              <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+              <button class="btn btn-warning">
+                <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                DESCARGAR
+              </button>
             </a>
           </td>
         </tr>

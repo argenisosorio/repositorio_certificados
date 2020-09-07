@@ -39,18 +39,20 @@
       </td>
         <td>
           <a href="media/{{ x.certificado }}" target="_blank">
-            Descargar
-            <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+            <button class="btn btn-warning">
+              <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+              DESCARGAR
+            </button>
           </a>
         </td>
       <td>
         <a href="{% url 'registro:editar_certificado' x.id %}">
-          <button class="btn btn-primary">Editar</button>
+          <button class="btn btn-primary">EDITAR</button>
         </a>
       </td>
       <td>
         <a href="{% url 'registro:borrar_certificado' x.id %}">
-          <button class="btn btn-danger">Borrar</button>
+          <button class="btn btn-danger">BORRAR</button>
         </a>  
       </td>
     </tr>
