@@ -138,7 +138,7 @@ class Editar_Certificado(SuccessMessageMixin, UpdateView):
     """
     Clase que permite editar los certificados registrados.
     """
-    template_name = "registro/guardar_certificado.html"
+    template_name = "registro/editar_certificado.html"
     form_class = CertificadoForm
     model = Certificado
     success_message = "Se actualizó la información con éxito"

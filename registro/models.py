@@ -23,7 +23,7 @@ class Certificado(models.Model):
     evento_curso = models.CharField(max_length=255, blank=True, null=True)
     rol = models.CharField(max_length=255, blank=True, null=True)
     certificado = models.FileField(upload_to='', blank=True, null=True)
-    uploaded_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    uploaded_at = models.DateTimeField(blank=True, null=True)
 
     def get_absolute_url(self):
         return reverse('registro:editar_certificado', kwargs={'pk': self.pk})

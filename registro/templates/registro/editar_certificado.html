@@ -1,5 +1,5 @@
 {% extends "registro/base.html" %}
-{% block titulo %}Guardar certificado{% endblock %}
+{% block titulo %}Editar certificado{% endblock %}
 {% block cuerpo %}
 <form method="post" enctype="multipart/form-data">{% csrf_token %}
 
@@ -28,13 +28,11 @@
 
   <hr />
 
-  <label>Fecha:</label>
-  {{ form.uploaded_at }}
-  <br />
-  Ejemplo: 16/09/20 00:00:00
+  <label>Fecha:</label> 
+  {{ form.uploaded_at }} Ejemplo: 16/09/20 00:00:00
 
   <hr />
 
-  <button type="submit">GUARDAR</button>
+  <button type="submit">ACTUALIZAR</button>
 </form>
 {% endblock %}

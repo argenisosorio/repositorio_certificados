@@ -18,4 +18,4 @@ class CertificadoForm(forms.ModelForm):
     """
     class Meta:
         model = Certificado
-        fields = ('nombre_completo','cedula','evento_curso','rol','certificado')
+        fields = ('nombre_completo','cedula','evento_curso','rol','certificado','uploaded_at')
