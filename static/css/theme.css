@@ -148,3 +148,45 @@ a {
   margin-top: 0px;
   margin-bottom: 0px;
 }
+
+.btn-grad {
+  background-image: linear-gradient(to right, #124485 0%, #1CB5E0  51%, #000046  100%)
+}
+
+.btn-grad {
+  padding: 10px 25px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color:#FFFFFF;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-grad-green {
+  background-image: linear-gradient(to right, green 0%, #1CB5E0  51%, #000046  100%)
+}
+
+.btn-grad-green {
+  padding: 10px 25px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color:#FFFFFF;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+}
+
+.btn-grad-green:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
