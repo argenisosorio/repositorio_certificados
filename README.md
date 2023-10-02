@@ -72,4 +72,10 @@ debe contener una carpeta con el nombre del evento y dentro deben estar los cert
 
 3) Subir el archivo data_final.csv desde el formulario disponible desde /subir_data_csv
 
+Debe tener un formato como este:
+
+María Mora,17770364,Foro de Blockchain,Asistente,fb/17770364-fb-Asistente-signed.pdf,2016-10-12 00:00:00
+José Ruiz,15755814,Foro de Blockchain,Asistente,fb/15755814-fb-Asistente-signed.pdf,2016-10-12 00:00:00
+Luis Aguin,13959850,Foro de Blockchain,Asistente,fb/13959850-fb-Asistente-signed.pdf,2016-10-12 00:00:00
+
 4) Insertar la data en la base de datos con la opción "Insertar data .csv"
