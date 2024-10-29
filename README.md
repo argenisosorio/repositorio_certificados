@@ -77,6 +77,8 @@ borrar .zip"
 
 Debe tener un formato como este:
 
+Donde el formato de fecha es yyyy-mm-dd
+
 María Mora,17770364,Foro de Blockchain,Asistente,fb/17770364-fb-Asistente-signed.pdf,2016-10-12 00:00:00
 José Ruiz,15755814,Foro de Blockchain,Asistente,fb/15755814-fb-Asistente-signed.pdf,2016-10-12 00:00:00
 Luis Aguin,13959850,Foro de Blockchain,Asistente,fb/13959850-fb-Asistente-signed.pdf,2016-10-12 00:00:00
