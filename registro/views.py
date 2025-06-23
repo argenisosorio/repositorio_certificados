@@ -105,6 +105,28 @@ def insertar_data_csv(request, template_name='registro/lista_certificados.html')
     messages = ['¡Se insertó la data .csv correctamente!']
     return render_to_response('registro/buscar.html', {'messages': messages}, context_instance=RequestContext(request))
 
+def delete_csv(request):
+    """
+    @method delete_csv
+    @brief Elimina todos los archivos .csv de la carpeta MEDIA_ROOT del proyecto.
+    @param request
+    @return Mensaje y redirección a template.
+    @author Ing. Argenis Osorio <aosorio@cenditel.gob.ve>
+    """
+    # Almacena el directorio de trabajo actual para restaurarlo posteriormente.
+    a = os.getcwd()
+
+    # Ejecuta script bash que realiza la eliminación, pasando como parámetros:
+    os.system("bash delete_csv.sh %s %s" % (settings.MEDIA_ROOT, settings.DATABASES['default']['NAME']))
+
+    # Restaura el directorio de trabajo original.
+    os.chdir(a)
+
+    # Retorna mensaje de éxito.
+    messages = ['¡Se eliminaron los archivos .csv correctamente!']
+
+    return render_to_response('registro/buscar.html', {'messages': messages}, context_instance=RequestContext(request))
+
 def formato_fecha(request):
     """
     Función que cambia el formato de hora y fecha de python

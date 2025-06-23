@@ -12,6 +12,8 @@ urlpatterns = patterns('',
     url(r'^lista_certificados$', login_required(views.Lista_Certificados.as_view()), name='lista_certificados'),
     url(r'^subir_data$', login_required(views.Subir_data.as_view()), name='subir_data'),
     url(r'^subir_data_csv$', login_required(views.Subir_data_csv.as_view()), name='subir_data_csv'),
+    # Eliminar los archivos .csv subidos al servidor.
+    url(r'^delete_csv$', login_required(views.delete_csv), name='delete_csv'),
     url(r'^guardar_certificado$', login_required(views.Guardar_Certificado.as_view()), name='guardar_certificado'),
     url(r'^editar_certificado/(?P<pk>\d+)$', login_required(views.Editar_Certificado.as_view()), name='editar_certificado'),
     url(r'^borrar_certificado/(?P<pk>\d+)$', login_required(views.Borrar_Certificado.as_view()), name='borrar_certificado'),
