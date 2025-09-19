@@ -17,6 +17,7 @@ from django.template import RequestContext
 from datetime import datetime
 import os
 import csv
+from django.db.models import Max
 
 
 class Subir_data(SuccessMessageMixin, CreateView):
@@ -190,17 +191,30 @@ def busqueda(request):
     """
     if 'q' in request.GET and request.GET['q']:
         q = request.GET['q']
-        #certificados = Certificado.objects.filter(cedula__icontains=q)
-        certificados = Certificado.objects.filter(cedula=q).order_by('-uploaded_at')
+
+        # Agrupar los certificados por los campos que definen la unicidad y
+        # encontrar el id del registro más reciente en cada grupo.
+        certificados_unicos = Certificado.objects.filter(cedula=q).values(
+            'nombre_completo',
+            'evento_curso',
+            'rol'
+        ).annotate(max_id=Max('id'))
+
+        # Extraer los IDs de los registros más recientes.
+        ids_unicos = [c['max_id'] for c in certificados_unicos]
+
+        # Obtener los objetos completos usando los IDs únicos.
+        certificados = Certificado.objects.filter(id__in=ids_unicos).order_by('-uploaded_at')
+
         if certificados:
-            #certificados = Certificado.objects.order_by('-uploaded_at')
-            return render(request, 'registro/buscar.html',  {'certificados': certificados, 'query': q})
+            return render(request, 'registro/buscar.html', {'certificados': certificados, 'query': q})
         else:
             messages = ['No se encontró ningún certificado.']
             return render_to_response('registro/buscar.html', {'messages': messages})
     else:
         messages = ['Por favor introduce una cédula de identidad.']
         return render_to_response('registro/buscar.html', {'messages': messages})
+
 
 class Salir(View):
     """
